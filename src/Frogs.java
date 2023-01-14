@@ -10,9 +10,17 @@ public class Frogs {
                      "    ) '| || |' (    ",
                      "OoO'- OoO''OoO -'OoO"};
 
+    /**
+     * Creates an ASCII Frog that is printable.
+     */
     public Frogs(){
         frogName = "_";
     }
+
+    /**
+     * Creates an ASCII frog with a name that is printable
+     * @param name is the name of the frog.
+     */
     public Frogs(String name){
         setFrogName(name);
     }
@@ -51,13 +59,13 @@ public class Frogs {
 
     /**
      * Assign a name to the frog.
-     * @param name
+     * @param name is the frogs name.
      */
     public void setFrogName(String name){
         frogName = name;
     }
 
-    public void fillFrogName(int index){
+    private void fillFrogName(int index){
         String letter = frogName.substring(index, index + 1);
         frog[2] = "   ,-.(._" + letter + "__.),-.   ";
     }
