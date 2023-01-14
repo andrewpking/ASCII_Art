@@ -1,3 +1,5 @@
+package src;
+
 public class Frogs {
     private String frogName;
     private String[] frog = {"        _  _        ",
