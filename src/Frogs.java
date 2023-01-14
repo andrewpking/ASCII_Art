@@ -50,7 +50,7 @@ public class Frogs {
 
         for(int i = 0; i < frog.length; i++){
             for(int j = 0; j < quantity; j++){
-                fillFrogName(j % frogName.length());
+                fillFrogName(j);
                 System.out.print(frog[i]);
             }
             System.out.println();
@@ -65,8 +65,14 @@ public class Frogs {
         frogName = name;
     }
 
+    /**
+     * Print each letter of a name on to a frogs tongue.
+     * @param index is the index of the letter to be printed.
+     */
     private void fillFrogName(int index){
-        String letter = frogName.substring(index, index + 1);
+        // Keep the letter index within bounds of the name.
+        int letterIndex = index % frogName.length();
+        String letter = frogName.substring(letterIndex, letterIndex + 1);
         frog[2] = "   ,-.(._" + letter + "__.),-.   ";
     }
 }
