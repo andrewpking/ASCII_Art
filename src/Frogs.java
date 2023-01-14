@@ -20,26 +20,20 @@ public class Frogs {
     /**
      * Prints frogs across the terminal quantity times.
      * @throws IllegalArgumentException if size < 1.
-     * @param quantity
+     * @param quantity describes number of frogs to print
      */
     public void printFrogs(int quantity){
-        if(quantity < 1){
-            throw new IllegalArgumentException();
-        }
-
-        for(int i = 0; i < frog.length; i++){
-            for(int j = 0; j < quantity; j++){
-                System.out.print(frog[i]);
-            }
-            System.out.println();
-        }
+        String oldName = frogName;
+        frogName = "_";
+        printFrogAndName(quantity);
+        frogName = oldName;
     }
 
     /**
-     * Prints frogs accross the terminal quantity times with the
+     * Prints frogs across the terminal quantity times with the
      * name of the frog in its mouth.
      * @throws IllegalArgumentException if size < 1.
-     * @param quantity
+     * @param quantity describes number of frogs to print
      */
     public void printFrogAndName(int quantity){
         if(quantity < 1){
