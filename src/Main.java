@@ -2,7 +2,7 @@ package src;
 
 public class Main {
     public static void main(String[] args) {
-        Frogs froggos = new Frogs("Drew");
-        froggos.printFrogAndName(4);
+        ASCIIArt frog = new Frogs("Drew");
+        frog.printAnimalsAndName(4);
     }
 }

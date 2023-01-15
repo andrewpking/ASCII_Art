@@ -1,6 +1,6 @@
 package src;
 
-public class Frogs {
+public class Frogs implements ASCIIArt {
     private String frogName;
     private String[] frog = {"        _  _        ",
                      "       (.)(.)       ",
@@ -14,7 +14,7 @@ public class Frogs {
      * Creates an ASCII Frog that is printable.
      */
     public Frogs(){
-        frogName = "_";
+        setAnimalName("_");
     }
 
     /**
@@ -22,7 +22,7 @@ public class Frogs {
      * @param name is the name of the frog.
      */
     public Frogs(String name){
-        setFrogName(name);
+        setAnimalName(name);
     }
 
     /**
@@ -30,10 +30,10 @@ public class Frogs {
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of frogs to print
      */
-    public void printFrogs(int quantity){
+    public void printAnimals(int quantity){
         String oldName = frogName;
         frogName = "_";
-        printFrogAndName(quantity);
+        printAnimalsAndName(quantity);;
         frogName = oldName;
     }
 
@@ -43,14 +43,14 @@ public class Frogs {
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of frogs to print
      */
-    public void printFrogAndName(int quantity){
+    public void printAnimalsAndName(int quantity){
         if(quantity < 1){
             throw new IllegalArgumentException();
         }
 
         for(int i = 0; i < frog.length; i++){
             for(int j = 0; j < quantity; j++){
-                fillFrogName(j);
+                fillAnimalName(j);
                 System.out.print(frog[i]);
             }
             System.out.println();
@@ -61,7 +61,7 @@ public class Frogs {
      * Assign a name to the frog.
      * @param name is the frogs name.
      */
-    public void setFrogName(String name){
+    public void setAnimalName(String name){
         frogName = name;
     }
 
@@ -69,7 +69,7 @@ public class Frogs {
      * Print each letter of a name on to a frogs tongue.
      * @param index is the index of the letter to be printed.
      */
-    private void fillFrogName(int index){
+    private void fillAnimalName(int index){
         // Keep the letter index within bounds of the name.
         int letterIndex = index % frogName.length();
         String letter = frogName.substring(letterIndex, letterIndex + 1);
