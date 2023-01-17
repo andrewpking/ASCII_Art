@@ -2,6 +2,11 @@ package src;
 
 public interface ASCIIArt {
     /**
+     * @return length of the animals name.
+     */
+    int getNameLength();
+
+    /**
      * Prints animals across the terminal quantity times.
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of animals to print
@@ -15,6 +20,21 @@ public interface ASCIIArt {
      * @param quantity describes number of animals to print
      */
     void printAnimalsAndName(int quantity);
+
+    /**
+     * Prints animals to file quantity times with the
+     * name of the animal in its mouth.
+     * @throws IllegalArgumentException if size < 1.
+     * @param quantity describes number of animals to print
+     */
+     void printAnimalsAndNameToFile(int quantity);
+
+    /**
+     * Prints animals to file quantity times.
+     * @throws IllegalArgumentException if size < 1.
+     * @param quantity describes number of frogs to print
+     */
+     void printAnimalsToFile(int quantity);
 
     /**
      * Assign a name to the animal.
