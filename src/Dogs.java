@@ -12,7 +12,7 @@ public class Dogs implements ASCIIArt{
                     "(_/-\\_) "};
 
     /**
-     * Creates an ASCII Frog that is printable to the Terminal.
+     * Creates an ASCII Dog that is printable to the Terminal.
      */
     public Dogs(){
         setAnimalName("@");
@@ -20,7 +20,7 @@ public class Dogs implements ASCIIArt{
     }
 
     /**
-     * Creates an ASCII frog with a name that is printable to the Terminal.
+     * Creates an ASCII Dog with a name that is printable to the Terminal.
      * @param name is the name of the frog.
      */
     public Dogs(String name){
@@ -29,7 +29,7 @@ public class Dogs implements ASCIIArt{
     }
 
     /**
-     * Creates an ASCII Frog that can be printed to a file.
+     * Creates an ASCII Dog that can be printed to a file.
      * @param print
      */
     public Dogs(PrintStream print){
@@ -38,7 +38,7 @@ public class Dogs implements ASCIIArt{
     }
 
     /**
-     * Creates an ASCII frog with a name that can be printed to a file.
+     * Creates an ASCII Dog with a name that can be printed to a file.
      * @param print the printstream to the file
      * @param name the name of the frog
      */
