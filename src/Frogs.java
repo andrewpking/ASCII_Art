@@ -14,25 +14,36 @@ public class Frogs implements ASCIIArt {
                      "OoO'- OoO''OoO -'OoO"};
 
     /**
-     * Creates an ASCII Frog that is printable.
+     * Creates an ASCII Frog that is printable to the Terminal.
      */
     public Frogs(){
         setAnimalName("_");
+        print = System.out;
     }
 
     /**
-     * Creates an ASCII frog with a name that is printable
+     * Creates an ASCII frog with a name that is printable to the Terminal.
      * @param name is the name of the frog.
      */
     public Frogs(String name){
         setAnimalName(name);
+        print = System.out;
     }
 
+    /**
+     * Creates an ASCII Frog that can be printed to a file.
+     * @param print
+     */
     public Frogs(PrintStream print){
         setAnimalName("_");
         this.print = print;
     }
 
+    /**
+     * Creates an ASCII frog with a name that can be printed to a file.
+     * @param print the printstream to the file
+     * @param name the name of the frog
+     */
     public Frogs(PrintStream print, String name){
         setAnimalName(name);
         this.print = print;
@@ -41,6 +52,7 @@ public class Frogs implements ASCIIArt {
     /**
      * @return length of the frogs name.
      */
+    @Override
     public int getNameLength(){
         return this.frogName.length();
     }
@@ -56,11 +68,7 @@ public class Frogs implements ASCIIArt {
         frog[2] = "   ,-.(._" + letter + "__.),-.   ";
     }
 
-    /**
-     * Prints frogs across the terminal quantity times.
-     * @throws IllegalArgumentException if size < 1.
-     * @param quantity describes number of frogs to print
-     */
+    @Override
     public void printAnimals(int quantity){
         String oldName = frogName;
         frogName = "_";
@@ -74,27 +82,8 @@ public class Frogs implements ASCIIArt {
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of frogs to print
      */
+    @Override
     public void printAnimalsAndName(int quantity){
-        if(quantity < 1){
-            throw new IllegalArgumentException();
-        }
-
-        for(int i = 0; i < frog.length; i++){
-            for(int j = 0; j < quantity; j++){
-                fillAnimalName(j);
-                System.out.print(frog[i]);
-            }
-            System.out.println();
-        }
-    }
-
-    /**
-     * Prints frogs to file quantity times with the
-     * name of the frog in its mouth.
-     * @throws IllegalArgumentException if size < 1.
-     * @param quantity describes number of frogs to print
-     */
-    public void printAnimalsAndNameToFile(int quantity){
         if(quantity < 1){
             throw new IllegalArgumentException();
         }
@@ -109,21 +98,10 @@ public class Frogs implements ASCIIArt {
     }
 
     /**
-     * Prints frogs to file quantity times.
-     * @throws IllegalArgumentException if size < 1.
-     * @param quantity describes number of frogs to print
-     */
-    public void printAnimalsToFile(int quantity){
-        String oldName = frogName;
-        frogName = "_";
-        printAnimalsAndNameToFile(quantity);
-        frogName = oldName;
-    }
-
-    /**
      * Assign a name to the frog.
      * @param name is the frogs name.
      */
+    @Override
     public void setAnimalName(String name){
         frogName = name;
     }

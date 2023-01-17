@@ -10,11 +10,11 @@ public class Main {
         try (PrintStream p = new PrintStream(f)) {
             ASCIIArt frog = new Frogs(p,"Drew");
             frog.printAnimalsAndName(4);
-            frog.printAnimalsAndNameToFile(4);
         } catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }
-
+        ASCIIArt dog = new Dogs("Jalisa");
+        dog.printAnimalsAndName(6);
 
     }
 }
