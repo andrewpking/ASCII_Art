@@ -3,7 +3,6 @@ package src;
 import java.io.PrintStream;
 
 public class Dogs extends Animals{
-    private final String defaultName = "@";
     private String[] asciiArt = {",'.-.'. ",
                     "'\\~ o/` ",
                     " { @ }  ",
@@ -14,8 +13,7 @@ public class Dogs extends Animals{
      * Creates an ASCII Dog that is printable to the Terminal.
      */
     public Dogs(){
-        super();
-        this.setAnimalName(defaultName);
+        super("@", "@");
     }
 
     /**
@@ -23,7 +21,7 @@ public class Dogs extends Animals{
      * @param name is the name of the dog.
      */
     public Dogs(String name){
-        super(name);
+        super(name, "@");
     }
 
     /**
@@ -31,8 +29,7 @@ public class Dogs extends Animals{
      * @param print is a PrintStream that goes to a file.
      */
     public Dogs(PrintStream print){
-        super(print);
-        this.setAnimalName(defaultName);
+        super(print,"@", "@");
     }
 
     /**
@@ -41,7 +38,7 @@ public class Dogs extends Animals{
      * @param name the name of the dog.
      */
     public Dogs(PrintStream print, String name){
-        super(print, name);
+        super(print, name, "@");
     }
 
     @Override
@@ -49,15 +46,6 @@ public class Dogs extends Animals{
         // Keep the letter index within bounds of the name.
         String letter = this.getNameSubstring(index);
         asciiArt[2] = " { " + letter + " }  ";
-    }
-
-
-    @Override
-    public void printAnimals(int quantity) {
-        String oldName = name;
-        this.setAnimalName(defaultName);
-        this.printAnimalsAndName(quantity);
-        name = oldName;
     }
 
     @Override

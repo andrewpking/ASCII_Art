@@ -4,7 +4,6 @@ import java.io.PrintStream;
 
 public class Frogs extends Animals {
 
-    private final String defaultName = "_";
     private String[] asciiArt = {"        _  _        ",
                      "       (.)(.)       ",
                      "   ,-.(.____.),-.   ",
@@ -17,8 +16,7 @@ public class Frogs extends Animals {
      * Creates an ASCII Frog that is printable to the Terminal.
      */
     public Frogs(){
-        super();
-        this.setAnimalName(defaultName);
+        super("_", "_");
     }
 
     /**
@@ -26,7 +24,7 @@ public class Frogs extends Animals {
      * @param name is the name of the frog.
      */
     public Frogs(String name){
-        super(name);
+        super(name, "_");
     }
 
     /**
@@ -34,8 +32,7 @@ public class Frogs extends Animals {
      * @param print the PrintStream pointing to a file.
      */
     public Frogs(PrintStream print){
-        super(print);
-        this.setAnimalName(defaultName);
+        super(print,"_", "_");
     }
 
     /**
@@ -44,7 +41,7 @@ public class Frogs extends Animals {
      * @param name the name of the frog
      */
     public Frogs(PrintStream print, String name){
-        super(print, name);
+        super(print, name, "_");
     }
 
     @Override
@@ -52,15 +49,6 @@ public class Frogs extends Animals {
         // Keep the letter index within bounds of the name.
         String letter = this.getNameSubstring(index);
         asciiArt[2] = "   ,-.(._" + letter + "__.),-.   ";
-    }
-
-
-    @Override
-    public void printAnimals(int quantity) {
-        String oldName = name;
-        this.setAnimalName(defaultName);
-        this.printAnimalsAndName(quantity);
-        name = oldName;
     }
 
     @Override

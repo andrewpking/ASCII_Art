@@ -4,30 +4,17 @@ import java.io.PrintStream;
 
 public abstract class Animals implements ASCIIArt {
     public PrintStream print;
+    public String defaultName;
     public String name;
-
-    /**
-     * Creates an ASCII Dog that is printable to the Terminal.
-     */
-    public Animals(){
-        print = System.out;
-    }
 
     /**
      * Creates an ASCII Animal with a name that is printable to the Terminal.
      * @param name is the name of the Animal.
      */
-    public Animals(String name){
-        setAnimalName(name);
-        print = System.out;
-    }
-
-    /**
-     * Creates an ASCII Animal that can be printed to a file.
-     * @param print the PrintStream pointing to a file.
-     */
-    public Animals(PrintStream print){
-        this.print = print;
+    public Animals(String name, String defaultName){
+        this.setAnimalName(name);
+        this.defaultName = defaultName;
+        this.print = System.out;
     }
 
     /**
@@ -35,8 +22,9 @@ public abstract class Animals implements ASCIIArt {
      * @param print the PrintStream pointing to a file.
      * @param name the name of the Animal.
      */
-    public Animals(PrintStream print, String name){
-        setAnimalName(name);
+    public Animals(PrintStream print, String name, String defaultName){
+        this.setAnimalName(name);
+        this.defaultName = defaultName;
         this.print = print;
     }
 
@@ -68,7 +56,12 @@ public abstract class Animals implements ASCIIArt {
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of animals to print.
      */
-    public abstract void printAnimals(int quantity);
+    public void printAnimals(int quantity) {
+        String oldName = name;
+        this.setAnimalName(defaultName);
+        this.printAnimalsAndName(quantity);
+        name = oldName;
+    }
 
     /**
      * Prints animals quantity times with the
