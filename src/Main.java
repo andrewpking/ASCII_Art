@@ -9,12 +9,12 @@ public class Main {
         File f = new File("ASCII_Art.txt");
         try (PrintStream p = new PrintStream(f)) {
             ASCIIArt frog = new Frogs(p,"Drew");
-            frog.printAnimalsAndName(4);
+            frog.printAnimalsAndName(frog.getNameLength());
         } catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }
         ASCIIArt dog = new Dogs("Jalisa");
-        dog.printAnimalsAndName(6);
+        dog.printAnimalsAndName(dog.getNameLength());
 
     }
 }

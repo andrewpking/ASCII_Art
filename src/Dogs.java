@@ -2,10 +2,9 @@ package src;
 
 import java.io.PrintStream;
 
-public class Dogs implements ASCIIArt{
-    private PrintStream print;
-    private String dogName;
-    private String[] dogs = {",'.-.'. ",
+public class Dogs extends Animals{
+    private final String defaultName = "@";
+    private String[] asciiArt = {",'.-.'. ",
                     "'\\~ o/` ",
                     " { @ }  ",
                     " /`-'\\  ",
@@ -15,78 +14,55 @@ public class Dogs implements ASCIIArt{
      * Creates an ASCII Dog that is printable to the Terminal.
      */
     public Dogs(){
-        setAnimalName("@");
-        print = System.out;
+        super();
+        this.setAnimalName(defaultName);
     }
 
     /**
      * Creates an ASCII Dog with a name that is printable to the Terminal.
-     * @param name is the name of the frog.
+     * @param name is the name of the dog.
      */
     public Dogs(String name){
-        setAnimalName(name);
-        print = System.out;
+        super(name);
     }
 
     /**
      * Creates an ASCII Dog that can be printed to a file.
-     * @param print
+     * @param print is a PrintStream that goes to a file.
      */
     public Dogs(PrintStream print){
-        setAnimalName("@");
-        this.print = print;
+        super(print);
+        this.setAnimalName(defaultName);
     }
 
     /**
      * Creates an ASCII Dog with a name that can be printed to a file.
-     * @param print the printstream to the file
-     * @param name the name of the frog
+     * @param print a PrintStream pointing to a file.
+     * @param name the name of the dog.
      */
     public Dogs(PrintStream print, String name){
-        setAnimalName(name);
-        this.print = print;
+        super(print, name);
     }
 
-    /**
-     * Print each letter of a name on to a frogs tongue.
-     * @param index is the index of the letter to be printed.
-     */
-    private void fillAnimalName(int index){
-        // Keep the letter index within bounds of the name.
-        int letterIndex = index % dogName.length();
-        String letter = dogName.substring(letterIndex, letterIndex + 1);
-        dogs[2] = " { " + letter + " }  ";
-    }
     @Override
-    public int getNameLength() {
-        return dogName.length();
+    public void fillAnimalName(int index){
+        // Keep the letter index within bounds of the name.
+        String letter = this.getNameSubstring(index);
+        asciiArt[2] = " { " + letter + " }  ";
     }
+
 
     @Override
     public void printAnimals(int quantity) {
-        String oldName = dogName;
-        setAnimalName("@");
-        printAnimalsAndName(quantity);
-        dogName = oldName;
+        String oldName = name;
+        this.setAnimalName(defaultName);
+        this.printAnimalsAndName(quantity);
+        name = oldName;
     }
 
     @Override
     public void printAnimalsAndName(int quantity) {
-        if(quantity < 1){
-            throw new IllegalArgumentException();
-        }
-
-        for(int i = 0; i < dogs.length; i++){
-            for(int j = 0; j < quantity; j++){
-                fillAnimalName(j);
-                print.print(dogs[i]);
-            }
-            print.println();
-        }
+        this.printHelper(quantity, asciiArt);
     }
 
-    @Override
-    public void setAnimalName(String name) {
-        this.dogName = name;
-    }
 }
