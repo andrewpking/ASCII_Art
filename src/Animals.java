@@ -3,9 +3,9 @@ package src;
 import java.io.PrintStream;
 
 public abstract class Animals implements ASCIIArt {
-    public PrintStream print;
-    public String defaultName;
-    public String name;
+    private PrintStream print;
+    private String defaultName;
+    private String name;
 
     /**
      * Creates an ASCII Animal with a name that is printable to the Terminal.
