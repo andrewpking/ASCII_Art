@@ -15,6 +15,7 @@ public class Main {
         }
         ASCIIArt dog = new Dogs("Jalisa");
         dog.printAnimalsAndName(dog.getNameLength());
+        dog.printAnimals(3);
 
     }
 }
