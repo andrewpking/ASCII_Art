@@ -2,8 +2,11 @@ package src;
 
 import java.io.PrintStream;
 
-public class Dogs extends Animals{
-    private String[] asciiArt = {",'.-.'. ",
+/**
+ * An adorable ASCII Dog to print and customize with words.
+ */
+public class Dogs extends ascii {
+    private static String[] asciiArt = {",'.-.'. ",
                     "'\\~ o/` ",
                     " { @ }  ",
                     " /`-'\\  ",
@@ -13,15 +16,7 @@ public class Dogs extends Animals{
      * Creates an ASCII Dog that is printable to the Terminal.
      */
     public Dogs(){
-        super("@", "@");
-    }
-
-    /**
-     * Creates an ASCII Dog with a name that is printable to the Terminal.
-     * @param name is the name of the dog.
-     */
-    public Dogs(String name){
-        super(name, "@");
+        super(asciiArt, "@");
     }
 
     /**
@@ -29,28 +24,14 @@ public class Dogs extends Animals{
      * @param print is a PrintStream that goes to a file.
      */
     public Dogs(PrintStream print){
-        super(print,"@", "@");
-    }
-
-    /**
-     * Creates an ASCII Dog with a name that can be printed to a file.
-     * @param print a PrintStream pointing to a file.
-     * @param name the name of the dog.
-     */
-    public Dogs(PrintStream print, String name){
-        super(print, name, "@");
+        super(print,asciiArt, "@");
     }
 
     @Override
-    public void fillAnimalName(int index){
+    public void fillName(int index, String name) {
         // Keep the letter index within bounds of the name.
-        String letter = this.getNameSubstring(index);
+        String letter = this.getNameSubstring(index, name);
         asciiArt[2] = " { " + letter + " }  ";
-    }
-
-    @Override
-    public void printAnimalsAndName(int quantity) {
-        this.printHelper(quantity, asciiArt);
     }
 
 }

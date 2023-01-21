@@ -1,32 +1,35 @@
 package src;
 
+/**
+ * A collection of operations for generating ASCII clipart.
+ */
 public interface ASCIIArt {
 
     /**
-     * @return length of the animals name.
+     * Print each letter of a name on to art.
+     * @param index is the index of the letter to be printed.
      */
-     int getNameLength();
+    void fillName(int index, String name);
+
+    /**
+     * Helper method for putting letters into ASCII Art.
+     * @param index the letter to place in the field.
+     * @return the letter to be placed in the field as a String.
+     */
+     String getNameSubstring(int index, String name);
 
     /**
      * Prints animals across the terminal quantity times.
      * @throws IllegalArgumentException if size < 1.
-     * @param quantity describes number of animals to print.
+     * @param quantity describes number of ASCII Art to print.
      */
-     void printAnimals(int quantity);
+     void printASCIIArt(int quantity);
 
     /**
-     * Prints animals quantity times with the
-     * name of the animal in its mouth.
-     * @throws IllegalArgumentException if size < 1.
-     * @param quantity describes number of animals to print.
+     * Prints duplicates of art with a String iterated accross it.
+     * @param name the string to be printed on the ASCII Art.
      */
-     void printAnimalsAndName(int quantity);
-
-    /**
-     * Assign a name to the animal.
-     * @param name is the animals name.
-     */
-     void setAnimalName(String name);
+     void printASCIIArt(String name);
 
 }
 

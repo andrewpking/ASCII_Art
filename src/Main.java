@@ -8,14 +8,14 @@ public class Main {
     public static void main(String[] args) {
         File f = new File("ASCII_Art.txt");
         try (PrintStream p = new PrintStream(f)) {
-            ASCIIArt frog = new Frogs(p,"Drew");
-            frog.printAnimalsAndName(frog.getNameLength());
+            ASCIIArt frog = new Frogs(p);
+            frog.printASCIIArt("Drew");
         } catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }
-        ASCIIArt dog = new Dogs("Jalisa");
-        dog.printAnimalsAndName(dog.getNameLength());
-        dog.printAnimals(3);
+        ASCIIArt dog = new Dogs();
+        dog.printASCIIArt("Jalisa");
+        dog.printASCIIArt(3);
 
     }
 }
