@@ -3,7 +3,7 @@ package src;
 /**
  * An adorable ASCII Dog to print and customize with words.
  */
-public class Dogs extends ascii {
+public class Dogs extends Ascii {
     private static final String[] asciiArt = {",'.-.'. ",
                     "'\\~ o/` ",
                     " { @ }  ",

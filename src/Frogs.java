@@ -4,7 +4,7 @@ package src;
  * An adorable ASCII Frog to print and customize with words.
  */
 
-public class Frogs extends ascii {
+public class Frogs extends Ascii {
 
     private static final String[] asciiArt = {"        _  _        ",
                      "       (.)(.)       ",

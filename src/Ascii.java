@@ -1,6 +1,6 @@
 package src;
 
-public abstract class ascii implements ASCIIArt {
+public abstract class Ascii implements ASCIIArt {
     private final String[] asciiArt;
     private StringBuilder artString;
     private final String defaultName;
@@ -10,9 +10,9 @@ public abstract class ascii implements ASCIIArt {
      * @param asciiArt the art to be printed
      * @param defaultName the default character to be printed when a String is not passed.
      */
-    public ascii(String[] asciiArt, String defaultName){
+    public Ascii(String[] asciiArt, String defaultName){
         this.defaultName = defaultName;
-        this.artString = new StringBuilder();
+        this.artString   = new StringBuilder();
         this.asciiArt    = asciiArt;
     }
 
