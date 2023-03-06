@@ -23,6 +23,12 @@ public class Frogs extends Ascii {
 
     @Override
     public void fillName(int index, String name){
+        if(index < 0){
+            throw new IllegalArgumentException("Index must be positive.");
+        }
+        if(name == null){
+            throw new IllegalArgumentException("Name must not be null.");
+        }
         // Keep the letter index within bounds of the name.
         String letter = this.getNameSubstring(index, name);
         asciiArt[2] = "   ,-.(._" + letter + "__.),-.   ";
