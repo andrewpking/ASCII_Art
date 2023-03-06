@@ -70,12 +70,12 @@ public abstract class Ascii implements ASCIIArt {
 
         artString = new StringBuilder();
 
-        for (String s : asciiArt) {
-            for (int j = 0; j < quantity; j++) {
-                fillName(j, name);
-                artString.append(s);
+        for(int i = 0; i < asciiArt.length; i++){
+            for(int j = 0; j < quantity; j++){
+                fillName(j,name);
+                artString.append(asciiArt[i]);
             }
-            artString.append('\n');
+            artString.append("\n");
         }
     }
 }

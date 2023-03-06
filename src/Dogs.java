@@ -11,7 +11,7 @@ public class Dogs extends Ascii {
                     "(_/-\\_) "};
 
     /**
-     * Creates an ASCII Dog that is printable to the Terminal.
+     * Creates an ASCII Dog that can be output to a StringBuilder.
      */
     public Dogs(){
         super(asciiArt, "@");

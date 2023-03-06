@@ -15,7 +15,7 @@ public class Frogs extends Ascii {
                      "OoO'- OoO''OoO -'OoO"};
 
     /**
-     * Creates an ASCII Frog that is printable to the Terminal.
+     * Creates an ASCII Frog that can be output to a StringBuilder.
      */
     public Frogs(){
         super(asciiArt, "_");
