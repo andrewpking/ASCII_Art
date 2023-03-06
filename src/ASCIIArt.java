@@ -22,14 +22,16 @@ public interface ASCIIArt {
      * Prints animals across the terminal quantity times.
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of ASCII Art to print.
+     * @return the StringBuilder containing the resulting art.
      */
-     void printASCIIArt(int quantity);
+     StringBuilder printASCIIArt(int quantity);
 
     /**
      * Prints duplicates of art with a String iterated accross it.
      * @param name the string to be printed on the ASCII Art.
+     * @return the StringBuilder containing the resulting art.
      */
-     void printASCIIArt(String name);
+     StringBuilder printASCIIArt(String name);
 
 }
 

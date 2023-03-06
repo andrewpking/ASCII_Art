@@ -1,12 +1,10 @@
 package src;
 
-import java.io.PrintStream;
-
 /**
  * An adorable ASCII Dog to print and customize with words.
  */
 public class Dogs extends ascii {
-    private static String[] asciiArt = {",'.-.'. ",
+    private static final String[] asciiArt = {",'.-.'. ",
                     "'\\~ o/` ",
                     " { @ }  ",
                     " /`-'\\  ",
@@ -17,14 +15,6 @@ public class Dogs extends ascii {
      */
     public Dogs(){
         super(asciiArt, "@");
-    }
-
-    /**
-     * Creates an ASCII Dog that can be printed to a file.
-     * @param print is a PrintStream that goes to a file.
-     */
-    public Dogs(PrintStream print){
-        super(print,asciiArt, "@");
     }
 
     @Override

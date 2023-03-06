@@ -1,30 +1,18 @@
 package src;
 
-import java.io.PrintStream;
-
 public abstract class ascii implements ASCIIArt {
-    private String[] asciiArt;
-    private PrintStream print;
+    private final String[] asciiArt;
+    private StringBuilder artString;
     private final String defaultName;
 
     /**
-     * Creates an ASCII graphic that is printable to the Terminal.
-     * @param asciiArt the art to be printed.
-     * @param defaultName the default character to be printed when a String is not passed.
-     */
-    public ascii(String[] asciiArt, String defaultName){
-        this(System.out, asciiArt, defaultName);
-    }
-
-    /**
-     * Creates an ASCII that can be printed to a file.
-     * @param print the PrintStream pointing to a file.
+     * Creates an ASCII object that can be constructed as a string builder.
      * @param asciiArt the art to be printed
      * @param defaultName the default character to be printed when a String is not passed.
      */
-    public ascii(PrintStream print, String[] asciiArt, String defaultName){
+    public ascii(String[] asciiArt, String defaultName){
         this.defaultName = defaultName;
-        this.print       = print;
+        this.artString = new StringBuilder();
         this.asciiArt    = asciiArt;
     }
 
@@ -50,16 +38,23 @@ public abstract class ascii implements ASCIIArt {
      * @throws IllegalArgumentException if size < 1.
      * @param quantity describes number of animals to print.
      */
-    public void printASCIIArt(int quantity) {
+    public StringBuilder printASCIIArt(int quantity) {
         printHelper(quantity, asciiArt, defaultName);
+        String result = artString.toString();
+        printHelper(1, asciiArt, defaultName);
+        return new StringBuilder(result);
     }
 
     /**
      * Prints ascii art with the name in its mouth.
      * @param name describes name to print.
+     * @return the StringBuilder containing the resulting art.
      */
-    public void printASCIIArt(String name){
+    public StringBuilder printASCIIArt(String name){
         printHelper(name.length(), asciiArt, name);
+        String result = artString.toString();
+        printHelper(1, asciiArt, defaultName);
+        return new StringBuilder(result);
     }
 
     /**
@@ -73,12 +68,14 @@ public abstract class ascii implements ASCIIArt {
             throw new IllegalArgumentException();
         }
 
-        for(int i = 0; i < asciiArt.length; i++){
-            for(int j = 0; j < quantity; j++){
-                fillName(j,name);
-                print.print(asciiArt[i]);
+        artString = new StringBuilder();
+
+        for (String s : asciiArt) {
+            for (int j = 0; j < quantity; j++) {
+                fillName(j, name);
+                artString.append(s);
             }
-            print.println();
+            artString.append('\n');
         }
     }
 }

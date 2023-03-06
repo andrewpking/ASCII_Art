@@ -1,14 +1,12 @@
 package src;
 
-import java.io.PrintStream;
-
 /**
  * An adorable ASCII Frog to print and customize with words.
  */
 
 public class Frogs extends ascii {
 
-    private static String[] asciiArt = {"        _  _        ",
+    private static final String[] asciiArt = {"        _  _        ",
                      "       (.)(.)       ",
                      "   ,-.(.____.),-.   ",
                      "  ( \\ \\ '--' / / )  ",
@@ -21,14 +19,6 @@ public class Frogs extends ascii {
      */
     public Frogs(){
         super(asciiArt, "_");
-    }
-
-    /**
-     * Creates an ASCII Frog that can be printed to a file.
-     * @param print the PrintStream pointing to a file.
-     */
-    public Frogs(PrintStream print){
-        super(print, asciiArt, "_");
     }
 
     @Override
