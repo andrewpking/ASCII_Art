@@ -1,3 +1,7 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
 # Compiled class file
 *.class
 
@@ -21,3 +25,19 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.DS_Store
+ASCII Art.iml
+ASCII_Art.txt
+.idea/misc.xml
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/workspace.xml
+
+out/production/ASCII Art/.idea/misc.xml
+out/production/ASCII Art/.idea/modules.xml
+out/production/ASCII Art/.idea/uiDesigner.xml
+out/production/ASCII Art/.idea/vcs.xml
+.idea/.gitignore
+out/production/ASCII Art/.gitignore
+out/production/ASCII Art/.idea/.gitignore
